@@ -1,0 +1,116 @@
+* {
+	margin:0;
+}
+
+header {
+	margin:2%;
+	font-family: 'Cinzel', serif;
+}
+
+.quizbox {
+	background-color: gray;
+	border-radius: .5em;
+	margin: 2%;
+}
+
+
+.root {
+	margin-left: 7%;
+	padding: 1em 0 .5em;
+
+}
+
+.root > * {
+	display: inline-block;
+}
+
+.root > p {
+	margin-right: 5%;
+	font-family: 'Cinzel', serif;
+}
+
+.root > h3 {
+	font-family: 'Cinzel', serif;
+}
+
+.example {
+	margin: .5em 1em;
+}
+
+.answer {
+	background-color: #020283;
+	color: white;
+	border-radius: .5em;
+	margin: .5em;
+	padding: 1em;
+}
+
+.buttons {
+	text-align: center;
+}
+
+button {
+	border: none;
+	border-radius: .5em;
+	padding: .25em 1em;
+	margin: 1em 3em;
+	text-align: center;
+	width: 6em;
+}
+
+
+nav {
+	background-color: #D8D8D8;
+	border-radius: .5em;
+	overflow: auto;
+	width: 100%;
+	margin-top: .5em;
+}
+
+nav > div {
+}
+
+.questionNo {
+	float: left;
+	margin: 1em;
+	font-weight: bold;
+}
+
+.nextArrow {
+	width: 20px;
+	margin: 1em auto 0 ;
+	border: 1px solid #000;
+}
+
+.score {
+	float: right;
+	margin: .5em;
+	margin-right: 1em;
+	text-align: center;
+}
+
+.score > p {
+	font-size: .8em;
+}
+
+
+@media all and (min-width: 30em) {
+	.quiz {
+		display: inline-block;
+		width: 88%;
+	}
+
+	nav {
+		display: inline-block;
+		width: 20%;
+		height: 100%;
+	}
+
+	.questionNo .score{
+		float: none;
+	}
+
+}
+
+
+
