@@ -55,17 +55,40 @@ $(document).ready(function () {
      examples: " allergy, energy, erg, ergometer, ergonomics, ergophobia, liturgy, metallurgy, organ, surgeon, synergy",
      explanation: "This root, meaning work as used in English, comes from the Greek έργον (ergon)"
     },
-     {greek: true,
+    {greek: true,
      root: "hyper-",
      examples: "hyperbole, hypervisor",
      explanation: "This root comes from the Greek ὑπέρ (huper) meaning above. The above example of hypervisor mixes this root and the Latin root visor"
     }
   ];
   var score = 0;
-  
-  var newGame = function () {
+  var questionList = [];
+
+  var nextQuestion = function () {
+
+  }
+
+  var nextPage = function () {
     
   }
- 
+  
+  var newGame = function () {
+    //randomize a new list and add elements to questionList
+
+    //reset score to 0
+    score = 0;
+
+    //go to first question
+
+
+
+  }
+
+  newGame(); 
+
+  $(".nextArrow").click(function () {
+    nextPage();
+  }); 
+
   
 });
