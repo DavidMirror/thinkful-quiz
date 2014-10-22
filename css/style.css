@@ -2,9 +2,15 @@
 	margin:0;
 }
 
+body {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
 header {
-	margin:2%;
-	font-family: 'Cinzel', serif;
+  margin:2%;
+  min-width: 20em;
+  font-family: 'Cinzel', serif;
 }
 
 .quizbox {
@@ -52,10 +58,52 @@ header {
 button {
 	border: none;
 	border-radius: .5em;
-	padding: .25em 1em;
-	margin: 1em 3em;
+	padding: .25em 5em;
+	margin: 1em 1.5em;
 	text-align: center;
 	width: 6em;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+.correct {
+  background-color: green;
+}
+
+.startpage, .endpage {
+   padding: .5em 0; 
+}
+
+.quizintro, .quizsummary {
+	background-color: #020283;
+	color: white;
+	border-radius: .5em;
+	margin: .5em;
+	padding: 1em;
+}
+
+.quizintro > p, .quizsummary> p {
+  margin: .5em;
+  line-height: 2em;
+}
+
+a {
+  color:white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+, .endpage  {
+  
+}
+
+.quiz,.startpage {
+  display: none;
 }
 
 
@@ -92,34 +140,34 @@ nav > div {
 .score > p {
 	font-size: .8em;
 }
+.clear {
+  clear:both;
+}
 
-
-@media all and (min-width: 30em) {
-	.quiz {
-		display: inline-block;
-		width: 84%;
-		vertical-align: top;
+@media all and (min-width: 36em) {
+	.quiz, .startpage, .endpage {
+     float:left;
+     width: 88%;
 	}
-
+  
 	nav {
-		display: inline-block;
-		width: 15%;
+	  float:right;
+		width: 10%;
 		height: 100%;
 		margin: 0;
-		margin-left: .05em;
-		vertical-align: top;
 	}
 
 	.questionNo, .score, .nextArrow {
 		width: 2em;
-		margin: 55% auto;
+		margin: 2.5em auto;
 	}
 
 	.questionNo, .score{
 		float: none;
 	}
+  
+  .answer {
+    margin: 1em 5% 1em;
+  }
 
 }
-
-
-
