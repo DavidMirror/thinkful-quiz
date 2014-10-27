@@ -5,8 +5,9 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Cinzel:400,700,900' rel='stylesheet' type='text/css'>	
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src=""></script>
+	<script src="js/app.js"></script>
 	
 </head>
 <body>
@@ -34,19 +35,19 @@
 	     </div>
 	     <div class="endpage">
 	       <section class="quizsummary">
-	         <p>You finished with a final score  of 3 of 6</p> 
+	         <p>You finished with a final score  of <i class="actualScore"></i></p> 
 	         <p>For further reading:</p>
 	         <p><a href="http://en.wikipedia.org/wiki/List_of_Greek_and_Latin_roots_in_English">Wikipedia: Greek and Latin Roots in English</a></p>
-	         <p>To play again with more words, click the play button on the right</p>
+	         <p>To play again with different words, click the play button on the right</p>
 	       </section>
 	     </div>
 			<nav>
 				<div class="questionNo">Q #</div>
 				<div class="score">
 					<p>score</p>
-					<h3>3/6</h3>
+					<h3 class="actualScore">3/6</h3>
 				</div>
-				<div class="nextArrow">-></div>
+				<div class="nextArrow"><i class="fa fa-arrow-right"></i></div>
 			</nav>
 	     <div class="clear"></div>
 		</div>

@@ -38,12 +38,12 @@ $(document).ready(function () {
      {greek: true,
      root: "typ-",
      examples: "archetype, phenotype, prototype, type, typewriter, typical, typify, typography, typology",
-     explanation: ""
+     explanation: 'This root comes from the Greek τύπος which can mean a pressing impression, figure, or type'
     },
      {greek: true,
      root: "con-",
      examples: "conic, conical, conoid",
-     explanation: "This root comes from the Greek κῶνος (kōnos), not to be confused with the Latin root con- which forms words such as connect, contain, and connote"
+     explanation: "This root comes from the Greek κῶνος (kōnos), not to be confused with the Latin root con- which forms words such as connect and contain"
     },
      {greek: true,
      root: "chron-",
@@ -63,12 +63,12 @@ $(document).ready(function () {
   ];
   var score = 0;
   var page = -1;
-  var questionList = [];
+  var questionList = RandomSix(allQuestions);
   var $quiz = $('.quiz');
   var answered = false;
   
   var updateScore = function () {
-    $('.score').find('h3').text(score + "/6");
+    $('.actualScore').text(score + "/6");
   };
   
   
@@ -83,8 +83,8 @@ $(document).ready(function () {
   
 
   
-  var RandomSix = function (o) {
-     var p = [];
+  function RandomSix(o) {
+    var p = [];
     //not my function, but wanted the random functionality
     for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);     
     //I added this bit, because I only want six questions per quiz 
@@ -96,7 +96,7 @@ $(document).ready(function () {
   
   var showScore = function () {
     if (page < questionList.length) {
-      $('.questionNo').text("Q#"+(page));
+      $('.questionNo').text("Q#"+(page +1 ));
     }
     else {
       $('.questionNo').text('Q #');
@@ -105,7 +105,7 @@ $(document).ready(function () {
   };
   
   var showQuiz = function () {
-    var currentPage = questionList[page-1];
+    var currentPage = questionList[page];
     //hide all children of quizbox
     $('.startpage').hide();
     $('.endpage').hide();
@@ -127,7 +127,7 @@ $(document).ready(function () {
   
   var nextPage = function () {
     //moving through the questions
-    if (page < questionList.length) {
+    if (page < questionList.length - 1) {
       page++;
       //show question 
       showQuiz();
@@ -136,20 +136,21 @@ $(document).ready(function () {
       //that both of these functions are working in the same page
     }
     //last question, need to draw endpage instead of quiz
-    else if (page === questionList.length ) {
+    else if (page === questionList.length - 1) {
       page++;
       //show end page
       showEnd();
     }
     //at endpage, neet to reset to first question
     else {
-      page = 0;
+      page = -1;
       newQuiz();
       //show first question
       showQuiz();
     }
     answered = false;
     showScore();
+    $(".quizbox").css('background-color', 'gray');
   };
   
   var newQuiz = function () {
@@ -166,12 +167,12 @@ $(document).ready(function () {
     if (!answered) {
       var currentQuestion = questionList[page];
       if (truthValue) {
-        $(this).addClass('.correct');
+        $(".quizbox").css('background-color', 'green');
         score++;
         updateScore();
       }
       else {
-        $(this).addClass('.incorrect');
+        $(".quizbox").css('background-color', 'red');
       }
       $('.answer').text(currentQuestion.explanation);
       answered = true;
@@ -179,21 +180,19 @@ $(document).ready(function () {
   };
   
   /********* start the quiz ***********/
-  questionList = RandomSix(allQuestions);
+  //questionList = RandomSix(allQuestions);
  
   $(".nextArrow").click(function () {
-    //if (answered || page === -1 || page ===6) {
+    if (answered || page === -1 || page ===6) {
       nextPage();
-    //}
+    }
   }); 
   
   $("#Greek").click(function () {
-    alert("click");
-    trueFalse(currentQuestion.greek);
+    trueFalse(questionList[page].greek);
   });
   
   $("#Latin").click(function () {
-    alert("click");
-    trueFalse(!currentQuestion.greek);
+    trueFalse(!questionList[page].greek);
   });
 });
