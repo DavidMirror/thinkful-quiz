@@ -20,22 +20,22 @@ header {
 }
 
 
-.root {
+.rootbox {
 	margin-left: 7%;
 	padding: 1em 0 .5em;
 
 }
 
-.root > * {
+.rootbox > * {
 	display: inline-block;
 }
 
-.root > p {
+.rootbox > p {
 	margin-right: 5%;
 	font-family: 'Cinzel', serif;
 }
 
-.root > h3 {
+.root {
 	font-family: 'Cinzel', serif;
 }
 
@@ -98,11 +98,11 @@ a:hover {
   text-decoration: underline;
 }
 
-, .endpage  {
+ .quiz,  {
   
 }
 
-.quiz,.startpage {
+.startpage, .endpage {
   display: none;
 }
 
