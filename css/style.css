@@ -3,7 +3,7 @@
 }
 
 html {
-	/*background-image: url(../img/bg.jpg);*/
+	background-image: url(../img/bg.jpg);
 	background-size: cover;
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -19,11 +19,13 @@ header {
   margin:2%;
   min-width: 20em;
   font-family: 'Cinzel', serif;
-  text-shadow: .1em .1em 0 #FFF;
+  text-shadow: -.05em 0 #E9F1F4, 0 .05em #E9F1F4, .05em 0 #E9F1F4, 0 -.05em #E9F1F4;
+  color: #20273E;
+  font-weight: bolder;
 }
 
 .quizbox {
-	background-color: gray;
+	background-color: #5A5850;
 	border-radius: .5em;
 	margin: 2%;
 }
@@ -53,8 +55,8 @@ header {
 }
 
 .answer {
-	background-color: #020283;
-	color: white;
+	background-color: #20273E;
+	color: #E9F1F4;
 	border-radius: .5em;
 	margin: .5em;
 	padding: 1em;
@@ -72,6 +74,8 @@ button {
 	width: 6em;
 	text-align:-moz-center;
 	text-align:center;
+   background-color: #E9F1F4;
+  color: #20273E;
 }
 
 .incorrect {
@@ -87,8 +91,8 @@ button {
 }
 
 .quizintro, .quizsummary {
-	background-color: #020283;
-	color: white;
+	background-color: #20273E;
+	color: #E9F1F4;
 	border-radius: .5em;
 	margin: .5em;
 	padding: 1em;
@@ -100,7 +104,7 @@ button {
 }
 
 a {
-  color:white;
+  color:#E9F1F4;
   text-decoration: none;
 }
 
@@ -118,7 +122,8 @@ a:hover {
 
 
 nav {
-	background-color: #D8D8D8;
+	background-color: #E9F1F4;
+  color: #373B3E;
 	border-radius: .5em;
 	overflow: auto;
 	width: 100%;
@@ -137,9 +142,9 @@ nav > div {
 .nextArrow {
 	width: 20px;
 	margin: 1em auto 0;
-	color: green;
 	font-size: 1.2em;
 	text-align: center;
+  color: #5A5850;
 }
 
 .score {
@@ -167,6 +172,7 @@ nav > div {
 		width: 10%;
 		height: 100%;
 		margin: 0;
+    color: #373B3E;
 	}
 
 	.questionNo, .score, .nextArrow {

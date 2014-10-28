@@ -28,7 +28,7 @@ $(document).ready(function () {
      {greek: false,
      root: "mit-, miss-",
      examples: "commit, emit, intermittent, missile, mission, missionary, omit, permit, remit, submit, transmit",
-     explanation: 'These roots are derived from the Latin mittō/mittere/missum, which could mean, among other things "I send, cause to go, let go, release, discharge"'
+     explanation: 'These roots are derived from the Latin mittō/mittere/missum, which meant "I send, cause to go, let go, release, discharge"'
     },
      {greek: true,
      root: "aesthet-",
@@ -66,22 +66,13 @@ $(document).ready(function () {
   var questionList = RandomSix(allQuestions);
   var $quiz = $('.quiz');
   var answered = false;
-  
-  var updateScore = function () {
-    $('.actualScore').text(score + "/6");
-  };
-  
-  
-  var updateQuestion = function () {
-    if (page < questionList.length+1) {
-      $('.questionNo').text("Q#" + (page + 1));
-    }
-    else {
-      $('.questionNo').text("Q #");
-    }
-  };
-  
-
+  var darkblue      = "#20273E";
+  var litebluegrey  = "#6F838A";
+  var darkbluegrey  = "#373B3E";
+  var white         = "#E9F1F4";
+  var grey          = "#5A5850";
+  var red           = "#65242D";
+  var green         = "#246531";
   
   function RandomSix(o) {
     var p = [];
@@ -101,7 +92,7 @@ $(document).ready(function () {
     else {
       $('.questionNo').text('Q #');
     }
-    $('.score').find('h3').text(score+'/'+questionList.length);
+    $('.actualScore').text(score+'/'+questionList.length);
   };
   
   var showQuiz = function () {
@@ -115,6 +106,8 @@ $(document).ready(function () {
     $('.root').text(currentPage.root);
     $('.example').text("e.g. " + currentPage.examples);
     $('.answer').text("Is this root Greek or Latin?");
+    $('.nextArrow').find('i').removeClass('fa-undo').addClass('fa-arrow-right');
+
   };
   
   var showEnd = function () {
@@ -123,6 +116,7 @@ $(document).ready(function () {
     $('.endpage').show();
     //show quiz
     $quiz.hide();
+    $('.nextArrow').find('i').removeClass('fa-arrow-right').addClass('fa-undo');
   };
   
   var nextPage = function () {
@@ -131,9 +125,6 @@ $(document).ready(function () {
       page++;
       //show question 
       showQuiz();
-      
-      //maybe switch these two? so that page++ comes second? check logic of showQuiz and showEnd to make sure 
-      //that both of these functions are working in the same page
     }
     //last question, need to draw endpage instead of quiz
     else if (page === questionList.length - 1) {
@@ -150,7 +141,8 @@ $(document).ready(function () {
     }
     answered = false;
     showScore();
-    $(".quizbox").css('background-color', 'gray');
+    $(".quizbox").css('background-color', grey);
+    $("button").css("border", "none");
   };
   
   var newQuiz = function () {
@@ -158,23 +150,24 @@ $(document).ready(function () {
     questionList = RandomSix(allQuestions);
     //reset score to 0
     score = 0;
-    updateScore();
+    showScore();
     //go to first question
     nextPage();
   };
   
-  var trueFalse = function(truthValue) {
+  var trueFalse = function(truthValue, element) {
     if (!answered) {
       var currentQuestion = questionList[page];
       if (truthValue) {
-        $(".quizbox").css('background-color', 'green');
+        $(".quizbox").css('background-color', green);
         score++;
-        updateScore();
+        showScore();
       }
       else {
-        $(".quizbox").css('background-color', 'red');
+        $(".quizbox").css('background-color', red);
       }
       $('.answer').text(currentQuestion.explanation);
+      element.css("border", ".2em solid #373B3E");
       answered = true;
     }
   };
@@ -189,10 +182,10 @@ $(document).ready(function () {
   }); 
   
   $("#Greek").click(function () {
-    trueFalse(questionList[page].greek);
+    trueFalse(questionList[page].greek, $(this));
   });
   
   $("#Latin").click(function () {
-    trueFalse(!questionList[page].greek);
+    trueFalse(!questionList[page].greek, $(this));
   });
 });
