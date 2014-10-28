@@ -189,3 +189,9 @@ nav > div {
   }
 
 }
+
+@media all and (min-height: 50em) and (min-width: 40em) {
+	html {
+    padding-top: 12em;
+  }
+}
