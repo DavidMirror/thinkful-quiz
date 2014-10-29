@@ -71,10 +71,8 @@ button {
 	border-radius: .5em;
 	padding: .25em 5em;
 	margin: 1em 1.5em;
-	width: 6em;
-	text-align:-moz-center;
 	text-align:center;
-   background-color: #E9F1F4;
+  background-color: #E9F1F4;
   color: #20273E;
 }
 
@@ -145,6 +143,39 @@ nav > div {
 	font-size: 1.2em;
 	text-align: center;
   color: #5A5850;
+}
+
+.clickme{
+  -webkit-animation: shimmer 2s infinite;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  from {
+    color:#5A5850;
+  }
+  
+  30% {
+    color: #E9F1F4;
+  }
+  
+  60% {
+    color:#5A5850;
+  }
+}
+
+@-webkit-keyframes shimmer {
+	from {
+	  color:#5A5850;
+	}
+	
+	30% {
+	  color: #E9F1F4;
+	}
+	
+	60% {
+	  color:#5A5850;
+	}
 }
 
 .score {

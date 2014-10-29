@@ -142,7 +142,9 @@ $(document).ready(function () {
     answered = false;
     showScore();
     $(".quizbox").css('background-color', grey);
-    $("button").css("border", "none");
+    $("button").css({"border": "none",
+                     "background-color":white});      
+    $('.nextArrow').removeClass('clickme');
   };
   
   var newQuiz = function () {
@@ -167,7 +169,11 @@ $(document).ready(function () {
         $(".quizbox").css('background-color', red);
       }
       $('.answer').text(currentQuestion.explanation);
-      element.css("border", ".2em solid #373B3E");
+      $('.nextArrow').addClass('clickme');
+      $('button').css("background-color",grey);
+      element.css({"border": ".2em solid #373B3E",
+                   "background-color":white});
+      
       answered = true;
     }
   };
